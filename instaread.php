@@ -211,10 +211,8 @@ add_action('wp_footer', function() {
     );
     hasContentRecipe = hasSaveRecipe && hasSkipRecipe;
 
-    console.log("Has Save Recipe:", hasSaveRecipe, "Has Skip Recipe:", hasSkipRecipe, "Combined:", hasContentRecipe);
 
     if (!hasContentRecipe) {
-        console.warn("Required recipe links not found in header.");
         return false;
     }
 
@@ -249,7 +247,6 @@ add_action('wp_footer', function() {
     wrapper.appendChild(player);
 
     const headerPosition = "<?= esc_js(get_option('instaread_header_position', 'inside_end')) ?>";
-    console.log("Header position from settings:", headerPosition);
 
     if (headerPosition === 'before') {
         contentActions.parentNode.insertBefore(wrapper, contentActions);
@@ -344,7 +341,6 @@ function injectContentPlayer() {
         function loadPlayer() {
             const script = document.createElement('script');
             script.src = `https://instaread.co/js/instaread.${publication}.js?v=${version}`;
-            console.log("Injecting Script")
             script.onload = () => {
                 document.querySelectorAll('.instaread-player').forEach(el => {
                     el.style.visibility = 'visible';
@@ -359,7 +355,6 @@ function injectContentPlayer() {
         if (injectHeaderPlayer()) {
             loadPlayer();
         } else if (injectContentPlayer()) {
-          console.log("hello")
             loadPlayer();
         } else {
             console.log("No suitable target found for player injection");
