@@ -344,6 +344,7 @@ function injectContentPlayer() {
         function loadPlayer() {
             const script = document.createElement('script');
             script.src = `https://instaread.co/js/instaread.${publication}.js?v=${version}`;
+            console.log("Injecting Script")
             script.onload = () => {
                 document.querySelectorAll('.instaread-player').forEach(el => {
                     el.style.visibility = 'visible';
@@ -358,6 +359,7 @@ function injectContentPlayer() {
         if (injectHeaderPlayer()) {
             loadPlayer();
         } else if (injectContentPlayer()) {
+          console.log("hello")
             loadPlayer();
         } else {
             console.log("No suitable target found for player injection");
