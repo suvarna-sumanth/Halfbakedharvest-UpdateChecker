@@ -3,7 +3,7 @@
  * Plugin Name: Instaread Audio Player
  * Plugin URI: https://www.instaread.co
  * Description: Advanced audio player injection with dual placement options and CLS prevention. Supports local and production script URLs for testing.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Instaread
  * Author URI: https://www.instaread.co
  */
